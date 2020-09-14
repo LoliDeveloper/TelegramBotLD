@@ -18,7 +18,7 @@ namespace TelegramBotLD.Models.Commands
 
             //TODO: Command logic -_-----
 
-            await client.SendTextMessageAsync(chatId, "Hello! I'm Schedule bot!\n*P.S* Not working yet", replyToMessageId: messageId);
+            await client.SendTextMessageAsync(chatId, "Hello! I'm Schedule bot!\n\n\n*P.S* Not working yet", replyToMessageId: messageId);
         }
     }
 }
