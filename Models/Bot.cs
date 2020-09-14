@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
+using TelegramBotLD.Models.Commands;
 
 namespace TelegramBotLD.Models
 {
     public static class Bot
     {
         private static TelegramBotClient client;
+        private static List<Command> commandsList; 
+
+        public static IReadOnlyList<Command> Commands { get => commandsList.AsReadOnly(); }
 
         public static async Task<TelegramBotClient> Get()
         {
@@ -17,8 +21,12 @@ namespace TelegramBotLD.Models
                 return client;
             }
 
+            commandsList = new List<Command>();
+            commandsList.Add(new StartCommand());
+            //ADD MORE COMMANDS
             client = new TelegramBotClient(AppSettings.Key);
-            await client.SetWebhookAsync("");
+            var hook = string.Format(AppSettings.Url, "api/message/update");
+            await client.SetWebhookAsync(hook);
 
             return client;
         }

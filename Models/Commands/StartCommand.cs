@@ -16,7 +16,7 @@ namespace TelegramBotLD.Models.Commands
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
 
-            //TODO: Command logic -_-----
+            //TODO: Command logic -_----- parsing and other HERE
 
             await client.SendTextMessageAsync(chatId, "Hello! I'm Schedule bot!\n\n\n*P.S* Not working yet", replyToMessageId: messageId);
         }
